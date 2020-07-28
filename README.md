@@ -21,7 +21,3 @@ Each service can run individually, just go to the path `./Network/api` and execu
 Note
 ----
 I recommend to use the /spec endpoint present on every service (except the database) to test the services, but I've used Postman while developing and debuging.
-
-M12 Project commentary
-----------------------
-I didn't have time to implement the frontend nor the manuals, but I have implemented Swagger on all services for testing and documentation. Also, all the function docstrings ar "spynx ready" so with the application Sphynx downloadeable from PIP they can be converted into ReadTheDocs HTML.
