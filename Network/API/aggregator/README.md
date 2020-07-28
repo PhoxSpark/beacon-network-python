@@ -1,0 +1,2 @@
+# Beacon Aggregator
+This service will ask the registries the available services on the network and ask each one individually. It has the same endpoints as the beacons because it will repeat the query to each known beacon and beacon aggregator.

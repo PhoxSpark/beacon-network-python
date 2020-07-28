@@ -1,0 +1,2 @@
+pip install -r ../../requirements.txt --no-index
+python -m beacon -c -i "b1.bn.com" -n "b1.bn.com" -u "b1.bn.com" -d "Beacon 1 for the test network." -a "http://alternative.org/main" -o "True" -O "inbelixir" -N "INB-ELIXIR" -D "Instituto nacional de Bioinformática." -A "Carrer de Jordi Girona, 29, 31, 08034 Barcelona." -U "https://inb-elixir.es" -C "inb.hub@bsc.es" -L "https://inb-elixir.es/sites/default/files/inbelixir.png"

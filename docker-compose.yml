@@ -1,0 +1,88 @@
+version: '3.7'
+
+networks:
+  beacon-net1:
+
+services:
+
+  db:
+    environment:
+      - POSTGRES_USER=microaccounts_dev
+      - POSTGRES_PASSWORD=testpassword
+      - POSTGRES_DB=elixir_beacon_dev
+      - PGDATA=/db.bn.com
+    hostname: db.bn.com
+    container_name: db.bn.com
+    build: ./Network/db/db
+    image: egarchive/elixir-beacon:db-latest
+    volumes:
+      - ./Network/db/beacon-db:/beacon-db
+    ports:
+      - "5432:5432"
+    networks:
+      - beacon-net1
+
+  beacon1:
+    hostname: b1.bn.com
+    build:
+      context: .
+      dockerfile: beacon.dockerfile
+    container_name: b1.bn.com
+    ports:
+      - "5001:5001"
+    networks:
+      - beacon-net1
+    command: >
+      bash -c 'pwd && cat beacon/database.ini && python -m beacon -p 5001 -c -i "b1.bn.com" -n "b1.bn.com" -u "b1.bn.com" -d "Beacon 1 for the test network." -a "http://alternative.org/main" -o "True" -O "inbelixir" -N "INB-ELIXIR" -D "Instituto nacional de Bioinformática." -A "Carrer de Jordi Girona, 29, 31, 08034 Barcelona." -U "https://inb-elixir.es" -C "inb.hub@bsc.es" -L "https://inb-elixir.es/sites/default/files/inbelixir.png"'
+
+  beacon2:
+    hostname: b2.bn.com
+    build:
+      context: .
+      dockerfile: beacon.dockerfile
+    container_name: b2.bn.com
+    ports:
+      - "5002:5002"
+    networks:
+      - beacon-net1
+    command: >
+      bash -c 'python -m beacon -p 5002 -c -i "b2.bn.com" -n "b2.bn.com" -u "b2.bn.com" -d "Beacon 2 for the test network." -a "http://alternative.org/main" -o "True" -O "inbelixir" -N "INB-ELIXIR" -D "Instituto nacional de Bioinformática." -A "Carrer de Jordi Girona, 29, 31, 08034 Barcelona." -U "https://inb-elixir.es" -C "inb.hub@bsc.es" -L "https://inb-elixir.es/sites/default/files/inbelixir.png"'
+
+  beacon3:
+    hostname: b3.bn.com
+    build:
+      context: .
+      dockerfile: beacon.dockerfile
+    container_name: b3.bn.com
+    ports:
+      - "5003:5003"
+    networks:
+      - beacon-net1
+    command: >
+      bash -c 'python -m beacon -p 5003 -c -i "b3.bn.com" -n "b3.bn.com" -u "b3.bn.com" -d "Beacon 3 for the test network." -a "http://alternative.org/main" -o "True" -O "inbelixir" -N "INB-ELIXIR" -D "Instituto nacional de Bioinformática." -A "Carrer de Jordi Girona, 29, 31, 08034 Barcelona." -U "https://inb-elixir.es" -C "inb.hub@bsc.es" -L "https://inb-elixir.es/sites/default/files/inbelixir.png"'
+
+  ba1:
+    hostname: ba1.bn.com
+    build:
+      context: .
+      dockerfile: aggregator.dockerfile
+    container_name: ba1.bn.com
+    ports:
+      - "5004:5004"
+    networks:
+      - beacon-net1
+    command: >
+      bash -c 'python -m aggregator --debug -p 5004 -c -i "ba1.bn.com" -n "ba1.bn.com" -u "ba1.bn.com" -d "Beacon Aggregator 1 for the test network." -a "http://alternative.org/main" -o "True" -e "True" -O "inbelixir" -N "INB-ELIXIR" -D "Instituto nacional de Bioinformática." -A "Carrer de Jordi Girona, 29, 31, 08034 Barcelona." -U "https://inb-elixir.es" -C "inb.hub@bsc.es" -L "https://inb-elixir.es/sites/default/files/inbelixir.png"'
+  
+  registry1:
+    hostname: r1.bn.com
+    build:
+      context: .
+      dockerfile: registry.dockerfile
+    container_name: r1.bn.com
+    ports:
+      - "5005:5005"
+    networks:
+      - beacon-net1
+    command: >
+      bash -c 'python -m registry -p 5005 -c -i "r1.bn.com" -n "r1.bn.com" -u "r1.bn.com" -d "Registry 1 for the test network." -a "http://alternative.org/main" -o "True" -O "inbelixir" -N "INB-ELIXIR" -D "Instituto nacional de Bioinformática." -A "Carrer de Jordi Girona, 29, 31, 08034 Barcelona." -U "https://inb-elixir.es" -C "inb.hub@bsc.es" -L "https://inb-elixir.es/sites/default/files/inbelixir.png" && sh init.sh'

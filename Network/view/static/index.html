@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+
+    <!-- Bootstrap Stuff -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <!-- - - - - - - - - -->
+  </head>
+  <body>
+
+    <!-- NavBar -->
+    <nav class="shadow-sm navbar navbar-expand-lg navbar-dark bg-dark zindextop">
+      <a class="navbar-brand" href="index.html">Beacon Network</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link active" href="index.html">Home<span class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link" href="services.html">Services</a>
+          <a class="nav-item nav-link" href="swagger.html">Swagger</a>
+          <a class="nav-item nav-link" href="documentation.html">Documentation</a>
+          <a class="nav-item nav-link" href="git.html">Git</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Content -->
+    <div class="w-75 p-5">
+      <div class="center-block" style="margin:auto;">
+        <!-- Content -->
+        <div class="center-block">
+            <h1>Query the BeaconNetwork</h1>
+            <p>
+                Use the next form to query the Beacon Network. All the
+                Beacons share the same PostgreSQL database so expect
+                repeated output. This is only to prove the functionality,
+                in the case that every Beacon has its own database, this
+                will work the same with different results for each Beacon.
+            </p>
+            <p>
+                I hope this help to understand how to use the app or how
+                it can work when it's fully developed. Unfortunately I
+                ran out of time with my project and I've done this as
+                fast as I could. I apologize for this and I hope this isn't
+                a too important part for puntuate my project.
+            </p>
+            <form action="/query:5004" method="GET">
+                <label for="assemblyId">AssemplyID*: </label><br>
+                <input type="text" id="assemblyId" name="assemblyId" value="GRCh37"/><br>
+                <label style="color:gray">Leave this on GRCh37 because it's the single one assembly on the DataBase.</label><br>
+                <br>
+                <label for="referenceName">ReferenceName: </label><br>
+                <input type="text" id="referenceName" name="referenceName" value="21"/><br>
+                <br>
+                <label for="referenceBases">ReferenceBases: </label><br>
+                <input type="text" id="referenceBases" name="referenceBases" value="A"/><br>
+                <br>
+                <label for="start">Start: </label><br>
+                <input type="text" id="start" name="start"/><br>
+                <br>
+                <label for="end">End: </label><br>
+                <input type="text" id="end" name="end"/><br>
+                <br>
+                <label for="startMin">StartMin: </label><br>
+                <input type="text" id="startMin" name="startMin"/><br>
+                <br>
+                <label for="startMax">StartMax: </label><br>
+                <input type="text" id="startMax" name="startMax"/><br>
+                <br>
+                <label for="endMin">EndMin: </label><br>
+                <input type="text" id="endMin" name="endMin"/><br>
+                <br>
+                <label for="endMax">EndMax: </label><br>
+                <input type="text" id="endMax" name="endMax"/><br>
+                <br>
+                <label for="alternateBases">AlternateBases: </label><br>
+                <input type="text" id="alternateBases" name="alternateBases"/><br>
+                <br>
+                <label for="variantType">VariantType: </label><br>
+                <input type="text" id="variantType" name="variantType"/><br>
+                <br>
+                <input type="submit" id="submit" name="submit" value="Submit" />
+            </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

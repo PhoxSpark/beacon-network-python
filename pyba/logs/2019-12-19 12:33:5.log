@@ -1,0 +1,54 @@
+[DEBUG] __main__.py.main(), line: 26
+Logs are now enabled and working
+
+[DEBUG] __main__.py.main(), line: 29
+Updating parameters on config files
+
+[DEBUG] pyba_config_lib.py.update_params(), line: 189
+Reading config file pyba/config/params.conf
+
+[DEBUG] pyba_config_lib.py.update_params(), line: 192
+Replacing non customizable camps
+
+[DEBUG] pyba_config_lib.py.update_params(), line: 196
+Opening pyba/config/params.conf on write mode
+
+[DEBUG] pyba_config_lib.py.update_params(), line: 198
+Writing all readed config file with applied changes
+
+[DEBUG] __main__.py.main(), line: 34
+Calling Flask initializator function
+
+[INFO] api.py.start(), line: 26
+Initializing Flask service. Debug=True
+
+[INFO] api.py.start(), line: 29
+Loading blueprints
+
+[DEBUG] api.py.start(), line: 30
+Loading INFO_ROOT blueprint
+
+[DEBUG] api.py.start(), line: 32
+Loading NETWORKS blueprint
+
+[DEBUG] api.py.start(), line: 34
+Loading PARSER blueprint
+
+[DEBUG] api.py.start(), line: 36
+Loading REGISTERED_BEACONS blueprint
+
+[DEBUG] api.py.start(), line: 38
+Loading REGISTRIES blueprint
+
+[DEBUG] api.py.start(), line: 40
+Loading SERVICE_INFO blueprint
+
+[DEBUG] api.py.start(), line: 42
+Loading SERVICE_TYPES blueprint
+
+[DEBUG] api.py.start(), line: 44
+Loading SERVICES blueprint
+
+[INFO] api.py.start(), line: 49
+Starting Flask
+

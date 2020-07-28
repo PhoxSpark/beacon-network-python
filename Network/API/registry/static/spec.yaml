@@ -1,0 +1,60 @@
+openapi: 3.0.0
+servers: []
+info:
+  version: "1.1.0"
+  title: GA4GH Registry API Specification
+  description: >-
+    Registry will inform the Beacon Aggregators about the network topology when asked. Also they accept modifications on its own registries directly from the endpoints.
+  contact:
+    email: beacon@ga4gh.org
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+externalDocs:
+  description: 'Beacon Project'
+  url: 'http://beacon-project.io/'
+paths:
+  /:
+    get:
+      description: Get information about the registry
+      operationId: getRegistry
+      responses:
+        '200':
+          description: successful operation
+  /networks:
+    get:
+      description: Get the network topology.
+      operationId: getNetworkTopology
+      responses:
+        '200':
+          description: successful operation
+    
+    post:
+      description: Add a new network into the registry.
+      operationId: postRegistryNetwork
+      parameters:
+        - name: id
+          description: 'ID for the network.'
+          in: query
+          required: true
+
+        - name: name
+          description: 'Name for the network.'
+          in: query
+          required: true
+          
+        - name: description
+          description: 'Description for the network.'
+          in: query
+          required: false
+          
+        - name: organization
+          description: 'Organization maintainer of the network.'
+          in: query
+          required: true
+  
+      responses:
+        '200':
+          description: successful operation
+        '400':
+          description: Bad request (e.g. missing mandatory parameter)

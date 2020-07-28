@@ -1,0 +1,6 @@
+Flask
+flask-cors
+requests
+flask_swagger_ui
+psycopg2
+flask-bootstrap
